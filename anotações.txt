@@ -1,0 +1,27 @@
+- Software de qualidade é: 
+
+* o mais fácil de usar
+* com funcionamento correto
+* fácil manutenção
+
+- Paradigmas da programação
+
+* classificação de linguagens por suas caracteristicas
+* programação procedural, funcional, POO
+* Paradigma Declarativo - o programador declara propriedades do resultado desejado, mas nao como calcula-lo, que seria o SQL
+* Paradigma Imperativo - o programador instrui a maquina sobre como alterar seu estado - o dev da o comando exato p maquina 
+fazer determinada coisa, aqui é usada linguagens de programação como JS, PHP, POO
+
+POO - Origens 
+
+Busca representar objetos ou fatos do mundo real, onde atributos (variaveis) representam as suas caracteristicas 
+e métodos (funções) seu comportamento
+
+- UML
+
+* Linguagem de modelagem de desenvolvimento geral, de uso geral, no cmapo da engenharia de software, cujo o objetivo é fornecer
+uma maneira de padrão de visualizar um sistema
+
+- Uso incorreto UML
+
+* Projetar todas as partes do sistema com ele
