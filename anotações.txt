@@ -25,3 +25,15 @@ uma maneira de padrão de visualizar um sistema
 - Uso incorreto UML
 
 * Projetar todas as partes do sistema com ele
+
+- Diagrama de Classes
+
+* + public 
+* - private
+* # protected
+* ~ package
+* ____ static fica sublinhado
+
+- Interface 
+
+* 
