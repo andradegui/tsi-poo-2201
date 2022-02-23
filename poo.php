@@ -3,9 +3,11 @@
 interface User{
 
     public function logar();
+    public function apagar();
+
 }
 
-class Aluno implements User{
+class Usuario implements User{
 
     protected $nome;
     private $email;
@@ -17,7 +19,11 @@ class Aluno implements User{
 
     public function logout() {
         echo "Tchau";
-    }    
+    } 
+
+    public function apagar(){
+        echo "Apagado";
+    }  
 
     //get e set são métodos para os atributos serem acessados ou alterados
     public function getNome()
@@ -50,18 +56,34 @@ class Aluno implements User{
     }
 }
 
-class Professor extends Aluno {
+class Professor extends Usuario {
     public function mudaNome($nome){
         $this->setNome($nome);
         $this->nome = $nome;
     }
 } 
 
+class Turma {
+
+    private $professor;
+
+    public function setProfessor(Professor $prof){
+        $this->professor = $prof;
+    }
+}
+
 $gui = new Professor;
 
 $gui->mudaNome('vini');
 
 var_dump($gui);
+
+$turma = new Turma();
+$turma->setProfessor('Gui');
+echo $turma;
+
+
+
 
 
 
