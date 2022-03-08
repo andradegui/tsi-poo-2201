@@ -68,6 +68,16 @@ class Turma {
     private $professor;
 
     public function setProfessor(Professor $prof){
+       $this->professor = $prof;        
+    }
+
+    public function getProfessor()
+    {
+        return $this->professor;
+    }
+
+    public function setNomeProf(Professor $prof){
+        $this->setNome($prof);
         $this->professor = $prof;
     }
 }
@@ -76,10 +86,8 @@ $gui = new Professor;
 
 $gui->mudaNome('vini');
 
-var_dump($gui);
-
 $turma = new Turma();
-$turma->setProfessor('Gui');
+$turma->setNomeProf('gui');
 echo $turma;
 
 
