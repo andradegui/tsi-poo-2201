@@ -1,6 +1,6 @@
 <?php 
 
-//memsa coisa que o cd, ch =  change / dir = directory
+//mesma coisa que o cd, ch =  change / dir = directory
 chdir(__DIR__);
 require_once '../Interfaces/Crud.php';
 

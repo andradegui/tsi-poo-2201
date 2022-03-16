@@ -12,6 +12,16 @@ class Usuario implements Crud, User
     private $senha;
     private $id_perfil;
 
+    public function __construct(){
+        echo "\n Construtor da classe usuário";
+    }
+
+    //só quem herda a classe pode utiliza-la
+    //que no caso seria a classe Clientes
+    protected function xpto(){
+        echo "\n Método xpto";
+    }
+
     public function criar(array $dados): bool {
         echo "\n Criado Perfil";
         return true;
