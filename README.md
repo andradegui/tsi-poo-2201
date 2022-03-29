@@ -20,6 +20,11 @@
 
  * Uma classe pode implementar quantas interfaces ela quiser. É utilizada a palavra *implements* para indicar que uma classe implementa determinada interface.
 
+ * Neste projeto os métodos das interfaces retornam booleano, caso retornar true a ação foi realizada, e caso
+ retornar false a ação não foi realizada.
+
+ # Construtor
+ * Um construtor consiste em um método que será chamado toda vez em que for criado um objeto da classe onde ele foi chamado. É usado para inicializar valores desse objeto.
 
 
 
