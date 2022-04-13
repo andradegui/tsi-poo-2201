@@ -13,26 +13,26 @@ class Investimento implements Crud  {
 
     public function criar(array $dados): bool
     {
-        echo 'Cliente cadastrado com sucesso';
+        echo 'Investimento feito com sucesso';
         return true;
     }
 
     public function apagar(int $id): bool
     {
-        echo 'Cliente apagado com sucesso';
+        echo 'Investimento apagado com sucesso';
         return true;
     }
 
     public function editar(int $id, array $dados): bool
     {
-        echo 'Dados alterados com sucesso';
+        echo 'Dados do investimento alterados com sucesso';
         return true;
     }
 
     public function listar(int $id = null): array
     {
-        echo "Esses são os clinetes listados: \n";
-        echo 'Guilherme';
+        echo "Esses são os investimento listados: \n";
+        echo '100 aportes de Petrobras';
         return [];
     }
 

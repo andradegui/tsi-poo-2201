@@ -9,26 +9,26 @@ class Ativo implements Crud{
 
     public function criar(array $dados): bool
     {
-        echo 'Investimento feito com sucesso';
+        echo 'Ativo criado com sucesso';
         return true;
     }
 
     public function apagar(int $id): bool
     {
-        echo 'Investimento apagado com sucesso';
+        echo 'Ativo apagado com sucesso';
         return true;
     }
 
     public function editar(int $id, array $dados): bool
     {
-        echo 'Dados alterados com sucesso';
+        echo 'Dados do ativo alterados com sucesso';
         return true;
     }
 
     public function listar(int $id = null): array
     {
-        echo "Esses são os clinetes listados: \n";
-        echo 'Guilherme';
+        echo "Esses são os ativos listados: \n";
+        echo '100 aportes de Petrobas';
         return [];
     } 
 }
