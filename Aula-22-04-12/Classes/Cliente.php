@@ -1,33 +1,37 @@
 <?php
 
-//mesma coisa que o cd, ch =  change / dir = directory
 chdir(__DIR__);
 require_once '../Interfaces/Crud.php';
 
-
-class Categoria
+class Cliente implements Crud
 {
-    private $id;
-    private $nome;
+
+    private int $id;
+    private string $nome;
+    private string $telefone;
 
     public function criar(array $dados): bool
     {
-        echo "\nCriada Categoria\n";
+        echo 'Cliente cadastrado com sucesso';
         return true;
     }
+
     public function apagar(int $id): bool
     {
-        echo "\nApagada Categoria $id\n";
+        echo 'Cliente apagado com sucesso';
         return true;
     }
+
     public function editar(int $id, array $dados): bool
     {
-        echo "\nEditada Categoria $id\n";
+        echo 'Dados alterados com sucesso';
         return true;
     }
+
     public function listar(int $id = null): array
     {
-        echo "\nListada Categoria $id\n";
+        echo "Esses são os clinetes listados: \n";
+        echo 'Guilherme';
         return [];
     }
 }
