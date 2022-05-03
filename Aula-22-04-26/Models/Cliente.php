@@ -19,11 +19,11 @@ class Cliente extends Model
     function inserir(array $dados): ?int
     {
         
-        $stmt = $this->prepare("INSERT INTO {$this->table} (Nome, Tel) 
-                                            VALUES (:Nome, :Tel)");
+        $stmt = $this->prepare("INSERT INTO {$this->table} (name, telefone) 
+                                            VALUES (:name, :telefone)");
 
-        $stmt->bindParam(':Nome', $dados['Nome']); 
-        $stmt->bindParam(':Tel', $dados['Tel']);
+        $stmt->bindParam(':name', $dados['name']); 
+        $stmt->bindParam(':telefone', $dados['telefone']);
 
 
         if($stmt->execute()){
@@ -34,16 +34,16 @@ class Cliente extends Model
         }        
     }
 
-    function atualizar(int $id_cliente, array $dados): bool
+    function atualizar(int $id, array $dados): bool
     {
         $stmt = $this->prepare("UPDATE {$this->table} SET 
-                                    Nome = :Nome, Tel = :Tel
+                                    name = :name, telefone = :telefone
                                 WHERE 
-                                    id_cliente = :id_cliente");
+                                    id = :id");
 
-        $stmt->bindParam(':id_cliente', $id_cliente); 
-        $stmt->bindParam(':Nome', $dados['Nome']); 
-        $stmt->bindParam(':Tel', $dados['Tel']);
+        $stmt->bindParam(':id', $id); 
+        $stmt->bindParam(':name', $dados['name']); 
+        $stmt->bindParam(':telefone', $dados['telefone']);
 
 
         if($stmt->execute()){
@@ -53,45 +53,37 @@ class Cliente extends Model
             return false;
         }     
     }
-
-    function apagar(int $id_cliente): bool
+    
+    function listar(int $id = null): ?array
     {
-        $stmt = $this->prepare("DELETE FROM {$this->table} WHERE id_cliente = :id_cliente");
+        if($id){
 
-        $stmt->bindParam(':id_cliente', $id_cliente);         
+            $stmt = $this->prepare("SELECT id, name, telefone FROM {$this->table} WHERE id = :id");
+
+            $stmt->bindParam(':id', $id);
+        }
+        else{
+            $stmt = $this->prepare("SELECT id, name, telefone FROM {$this->table} ");
+        }
 
         $stmt->execute();
 
-        if($stmt->rowCount() > 0){
-            echo "Sucesso ao apagar";
+        $lista = [];
 
-            return true;
+        while($registro = $stmt->fetch(PDO::FETCH_ASSOC)){
+            $lista[] = $registro;
         }
-        else{
-            echo "Nenhuma linha afetada";
-            return false;
-        } 
-    }
-
-    function listar(int $id_cliente = null): ?array
-    {
-        // $stmt = $this->prepare("SELECT Nome, Tel FROM {$this->table} WHERE id_cliente = :id_cliente");
-
-        // $stmt->bindParam(':id_cliente', $id_cliente);                                    
-
-        // if($stmt->execute()){
-        //     return true;
-        // }
-        // else{
-        //     return false;
-        // }    
-
-        return [];
+        
+        return $lista;
     }
 }
 
 $cliente = new Cliente();
 
-
+echo $cliente->inserir(['name' => 'Guilherme' , 'telefone' => '11949047919']);
+echo $cliente->inserir(['name' => 'Julia' , 'telefone' => '11949047939']);
+echo $cliente->inserir(['name' => 'Vinicius' , 'telefone' => '11949047949']);
+echo $cliente->inserir(['name' => 'Gustavo' , 'telefone' => '11942047949']);
 // echo $cliente->atualizar(1, ['Nome' => 'Gui Rafael' , 'Tel' => '11943027919']);
-echo $cliente->apagar(8);
+// var_dump($cliente->listar()); 
+
