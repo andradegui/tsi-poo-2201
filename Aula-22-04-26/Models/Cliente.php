@@ -80,10 +80,12 @@ class Cliente extends Model
 
 $cliente = new Cliente();
 
-echo $cliente->inserir(['name' => 'Guilherme' , 'telefone' => '11949047919']);
-echo $cliente->inserir(['name' => 'Julia' , 'telefone' => '11949047939']);
-echo $cliente->inserir(['name' => 'Vinicius' , 'telefone' => '11949047949']);
-echo $cliente->inserir(['name' => 'Gustavo' , 'telefone' => '11942047949']);
+// echo $cliente->inserir(['name' => 'Guilherme' , 'telefone' => '11949047919']);
+// echo $cliente->inserir(['name' => 'Julia' , 'telefone' => '11949047939']);
+// echo $cliente->inserir(['name' => 'Vinicius' , 'telefone' => '11949047949']);
+// echo $cliente->inserir(['name' => 'Gustavo' , 'telefone' => '11942047949']);
 // echo $cliente->atualizar(1, ['Nome' => 'Gui Rafael' , 'Tel' => '11943027919']);
 // var_dump($cliente->listar()); 
+
+
 
