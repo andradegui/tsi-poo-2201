@@ -1,3 +1,9 @@
 # Aula Sobre SOLID e GARSP
 
-- *S*ingle-responsibility Principle /  Open-closed Principle 
+- Sempre manter alta coesão, e baixo acoplamento
+
+- Não deixar um código depender do outro
+
+- Single-responsibility Principle: 
+
+- > Open-closed Principle / 
