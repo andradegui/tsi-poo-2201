@@ -1,3 +1,57 @@
+# Padrões de templates de projetos
+
+- A diferença entre os padrões de projeto: 
+
+**Strategy** usa interface e **Template** usa classe abstrata. 
+
+**Factory** evita instaciar classe em código cliente, é criada uma classe apenas para instanciar outras classes
+
+# Liskov
+
+- Liskov faz referência direta a herança. Caso vc sempre trabalhar com herança não irá se preocupar com este conceito. 
+
+- Liskov usa polimorfismo
+
+- Esse padrão ñ é respeitado quando vc cria uma classe abstrata com métodos abstratos. Porém quando vc cria uma classe para extender essa outra classe (com métodos), começa a criar novos métodos na classe q sede os métodos.
+
+# Como saber se está aplicando bem os conceitos
+
+- Caso usar o OCP e LSP automaticamente vc atende ao ultimo conceito de inversão de dependencia
+
+# Interface Segregation
+
+- Nenhum código cliente deve depender de outros códigos. Eles dependem apenas dos que realmente precisam e usam.
+
+# Quando usar os conceitos?
+
+- Quando for refatorar o código, iremos aplicar. Ou quando um calo apertar e vc ter que mexer no código pela 2º vez, vc VAI TER que aplicar conceitos do SOLID. 
+
+# DIP (Dependency Inversion)
+
+- **Módulo de alto nível** (onde ficam os códigos mais usados, quando usam a biblioteca da própria linguagem) deve sofrer muito menos alteração do que o **módulo de baixo nível** (onde fica calculos, interações com outros sistemas)
+
+- Defende q os módulos de alto nível não devem depender dos módulos de baixo nível
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # SOLID
 
 - Sempre manter alta coesão, e baixo acoplamento
