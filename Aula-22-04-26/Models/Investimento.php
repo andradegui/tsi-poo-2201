@@ -35,25 +35,22 @@ class Investimento extends Model
 
     function atualizar(int $id, array $dados): bool
     {
-        $stmt = $this->prepare("UPDATE {$this->table} SET 
-                                    qtd = :qtd, id_ativo = :id_ativo, id_cliente = :id_cliente
-                                WHERE 
-                                    id = :id");
-
-        $stmt->bindParam(':id', $dados['id']);
-        $stmt->bindParam(':qtd', $dados['qtd']);
-        $stmt->bindParam(':id_ativo', $dados['id_ativo']);
-        $stmt->bindParam(':id_cliente', $dados['id_cliente']);
-
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+      $stmt = $this->prepare("UPDATE {$this->table} SET 
+                                qtd = :qtd, id_cliente = :id_cliente, id_ativo = :id_ativo
+                              WHERE id = :id");
+  
+      $stmt->bindParam(':id', $id);
+      $stmt->bindParam(':qtd', $dados['qtd']);
+      $stmt->bindParam(':id_cliente', $dados['id_cliente']);
+      $stmt->bindParam(':id_ativo', $dados['id_ativo']);
+  
+      $stmt->execute();
+      if ($stmt->rowCount() > 0) {
+        return true;
+      } else {
+        return false;
+      }
     }
-
     function listar(int $id = null): ?array
     {
 
@@ -75,17 +72,17 @@ class Investimento extends Model
         }
 
         return $lista;
-    }
+    }    
 
-    function carteiraCliente(int $id_cliente): array
-    {
+    function cliente(int $id_cliente):?array{
+        
+        $stmt = $this->prepare("SELECT id, qtd, id_ativo, id_cliente 
+                                FROM {$this->table} WHERE id_cliente = :id");
 
-        $stmt = $this->prepare("SELECT id, qtd, id_ativo FROM {$this->table} WHERE id_cliente = :id");
-
-        $stmt->bindParam(':id', $id_cliente);
+        $stmt->bindParam(':id', $id_cliente); 
 
         $stmt->execute();
-
+        
         $lista = [];
 
         while ($registro = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -94,6 +91,7 @@ class Investimento extends Model
 
         return $lista;
     }
+    
 }
 
 $investimento = new Investimento;
@@ -103,4 +101,4 @@ $investimento = new Investimento;
 // echo $investimento->inserir(['qtd' => '18', 'id_ativo' => '4', 'id_cliente' => '15']);
 // echo $investimento->inserir(['qtd' => '10', 'id_ativo' => '4', 'id_cliente' => '16']);
 
-var_dump($investimento->atualizar(5, ['qtd' => '40', 'id_ativo' => '4', 'id_cliente' => '16']));
+// var_dump($investimento->atualizar(5, ['qtd' => '50', 'id_ativo' => '', 'id_cliente' => '16']));

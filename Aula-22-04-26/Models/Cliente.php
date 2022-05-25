@@ -2,10 +2,11 @@
 
 chdir(__DIR__);
 require_once './Model.php';
+require_once './Investimento.php';
 
 class Cliente extends Model
 {
-
+    private Investimento $investimento;
     protected string $table;
     
     public function __construct()
@@ -13,6 +14,8 @@ class Cliente extends Model
         parent::__construct();
 
         $this->table = 'cliente';
+
+        $this->investimento = new Investimento;
 
     }
 
@@ -75,6 +78,11 @@ class Cliente extends Model
         }
         
         return $lista;
+    }
+
+    function carteira(int $id_cliente): array
+    {
+        return $this->investimento->cliente($id_cliente);
     }
 }
 
