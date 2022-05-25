@@ -12,21 +12,21 @@ class Main
     public function __construct()
     {
 
-        $this->cliente = new Cliente;
-        $this->investimento = new Investimento;
+        $this->clientes = new Cliente;
+        
 
         $this->listarClientes();
     }
 
     public function listarClientes()
     {
-        $clientes = $this->cliente->listar();
+        $clientes = $this->clientes->listar() ?? [];
 
         //Para cada cliente
-        foreach($clientes as $ind => $cliente){
+        foreach($clientes as $ind => $cliente){            
 
             //Recupero a carteira de investimentos
-            $carteira = $this->investimento->carteiraCliente($cliente['id']);
+            $carteira = $this->clientes->carteira($cliente['id']);
 
             $totalAtivos = 0;
             
